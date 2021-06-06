@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const TurnoSchema = mongoose.Schema({
+    
 
 })
 

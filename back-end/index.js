@@ -20,7 +20,8 @@ server.get('/', (req,res)=>{
 })
 
 //Importar las rutas
-server.use('/api/paciente', require('./routes/pacientes'))//Ruta para ir a paciente
+server.use('/api/pacientes', require('./routes/pacientes'))//Ruta para ir a paciente
+server.use('/api/medicos', require('./routes/medicos'))//Ruta para ir a medico
 
 //Correr el servidor
 server.listen(process.env.PORT, ()=>{

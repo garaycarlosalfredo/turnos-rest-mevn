@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const PacienteSchema = mongoose.Schema({
+const MedicoSchema = mongoose.Schema({
     nombre : {
         type: String,
         require: true,
@@ -16,31 +16,20 @@ const PacienteSchema = mongoose.Schema({
         require: true,
         unique: true
     },
-    //Fecha de nacimiento
-    nacimiento:{
-        type: Date,
-        default: Date.now()
-
+    matricula : {
+        type: Number,
+        require: true,
+        unique: true
     },
     //Numero celular
     telefono : {
         type: Number,
     },
     //Alergias del paciente, resumen clinico
-    clinica : [{
-        type: String,
+    especialidad : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref : 'Especialidad'
     }],
-    //Prepaga del paciente
-    prepaga_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Prepaga'
-    },
-
-    //Historial(Turnos)
-    turnos:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Turno'
-    }]
 })
 
-module.exports = mongoose.model('Paciente', PacienteSchema)
+module.exports = mongoose.model('Medico', MedicoSchema)
